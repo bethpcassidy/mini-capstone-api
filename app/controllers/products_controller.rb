@@ -1,11 +1,22 @@
 class ProductsController < ApplicationController
-  def all_products
+  def index
     products = Product.all
-    render json: products
+    render json: products.as_json
   end
 
-  def cactus
-    products = Product.find_by name: "cactus"
-    render json: products
+  def show
+    product = Product.find_by(id: params["id"])
+    render json: product.as_json
+  end
+
+  def create
+    product = Product.new(
+      name: params["name"],
+      price: params["price"],
+      image_url: params["image_url"],
+      description: params["description"],
+    )
+    product.save
+    render json: product.as_json
   end
 end
