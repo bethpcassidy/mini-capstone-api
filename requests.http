@@ -16,3 +16,14 @@ Content-Type: application/json
   "image_url": "url",
   "description": "description"
 }
+
+###
+PATCH http://localhost:3000/products/5.json
+Content-Type: application/json
+
+{
+  "name": "funny dog plush",
+  "price": 4,
+  "image_url": "https://www.squishable.com/mm5/graphics/00000001/mini_squish_dachshund_hot_dog_7.jpg",
+  "description": "woah!"
+}
