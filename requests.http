@@ -27,3 +27,6 @@ Content-Type: application/json
   "image_url": "https://www.squishable.com/mm5/graphics/00000001/mini_squish_dachshund_hot_dog_7.jpg",
   "description": "woah!"
 }
+
+###
+DELETE http://localhost:3000/products/6.json
