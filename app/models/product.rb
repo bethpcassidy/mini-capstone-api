@@ -1,4 +1,11 @@
 class Product < ApplicationRecord
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :description, presence: true
+  validates :description, length: { in: 10..500 }
+  validates :id, uniqueness: true
+  validates :price, numericality: { greater_than: 0 }
+
   def friendly_created_at
     created_at.strftime("%B %e, %Y")
   end
