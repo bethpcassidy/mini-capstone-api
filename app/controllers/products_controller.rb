@@ -1,4 +1,10 @@
 class ProductsController < ApplicationController
+  belongs_to :supplier
+  belongs_to :order
+  has_many :images
+
+  before_action :authenticate_admin
+
   def index
     @products = Product.all
     render template: "products/index"
@@ -14,7 +20,7 @@ class ProductsController < ApplicationController
     @product = Product.new(
       name: params["name"],
       price: params["price"],
-      description: params["description"],
+      description: params["description"]
     )
     if @product.save
       render json: @product.as_json

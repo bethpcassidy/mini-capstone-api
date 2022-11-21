@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   delete "/products/:id", controller: "products", action: "destroy"
   post "/users" => "users#create"
   post "/sessions" => "sessions#create"
+  post "/orders" => "orders#create"
+  get "/orders/:id", controller: "orders", action: "show"
+  get "/orders", controller: "orders", action: "index"
 end

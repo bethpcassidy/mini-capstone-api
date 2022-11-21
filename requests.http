@@ -1,3 +1,13 @@
+
+@hostname = http://localhost:3000/
+@port = 3000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+@createdAt = {{$datetime iso8601}}
+@modifiedBy = {{$processEnv USERNAME}}
+
+
+
 ###
 GET  http://localhost:3000/products.json
 
@@ -56,3 +66,31 @@ Content-Type: application/json
   "email": "test@test.com",
   "password": "password"
 }
+
+### Photos create
+POST http://localhost:3000/photos.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjozLCJleHAiOjE2Mjk5OTI4NjR9.G2ExsrDYn3oE0vJkvm4T6Po2GbNpH5cqTEaVPVuK_MA
+Content-Type: application/json
+
+{
+  "name": "Test name",
+  "width": 640,
+  "height": 480
+}
+
+### Orders test
+POST http://localhost:3000/orders.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjgyNzkyNTV9.mH5Kt7A3sNjvwhOUxRijOrbGtEXJ9GvXjLC-QCTApLY
+Content-Type: application/json
+
+{
+  "product_id": 1,
+  "quantity": 1,
+}
+
+### Orders test
+GET http://localhost:3000/orders.json
+
+
+
+###
